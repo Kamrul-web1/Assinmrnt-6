@@ -1,6 +1,8 @@
 import React from 'react';
-import BodyCard from '../BodyCard';
+
 import { IType } from '@/type/type';
+import Link from 'next/link';
+import BodyCard from '@/app/Body/page';
 
 
 const getBoycore = async () => {
@@ -23,13 +25,17 @@ const BodyCore = async () => {
 
             </div>
             {/* Body card grid */}
+
             <div className=' grid grid-cols-3 gap-4 pb-9'>
                 {
                     Bodydata.map((workout: IType, id: number) => {
-                        return <BodyCard key={id} workout={workout} />
+                        return <Link key={workout.id} href={`/Body/${workout.id}`}>
+                            <BodyCard workout={workout} />
+                        </Link>
                     })
                 }
             </div>
+
         </section>
     );
 };
