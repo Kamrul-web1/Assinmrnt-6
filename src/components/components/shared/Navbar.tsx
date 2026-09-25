@@ -23,12 +23,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-center flex gap-4">
                 <ul className="flex gap-4  ">
-                    <li><a className=' w-5 m-3 p-2 rounded-3xl bg-[#2D313B] text-[#C2F800]'>Workouts</a></li>
+                    <li><a className=' w-5 mx-3 py-2 px-4 rounded-3xl bg-[#2D313B] text-[#C2F800]'>Workouts</a></li>
                     <li>
 
 
                     </li>
-                    <li><a className=' w-5 m-4 p-2 rounded-3xl bg-[#2D313B] text-[#9CA3AF]'>My Plan</a></li>
+                    <li><a className=' w-5 m-4 p-2 rounded-3xl  text-[#9CA3AF]'>My Plan</a></li>
                 </ul>
             </div>
             <div className="navbar-end flex gap-1.5">
