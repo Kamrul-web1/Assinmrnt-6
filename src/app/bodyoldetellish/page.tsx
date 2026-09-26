@@ -124,7 +124,7 @@ const BodyolldetelsAncount = () => {
         <main className="min-h-screen bg-[#0d0f12] px-5 py-8 text-white md:px-8">
             <div className="mx-auto max-w-[900px]">
 
-                {/* ================= HEADER ================= */}
+                {/* = HEADER */}
                 <div className="mb-5">
                     <h1 className="text-[24px] font-extrabold tracking-tight">
                         MY PLAN
@@ -135,7 +135,7 @@ const BodyolldetelsAncount = () => {
                     </p>
                 </div>
 
-                {/* ================= STATS ================= */}
+                {/* STAT */}
                 <div className="mb-6 grid grid-cols-3 overflow-hidden rounded-xl border border-[#242830] bg-[#12151b]">
 
                     {/* Exercises */}
@@ -172,7 +172,7 @@ const BodyolldetelsAncount = () => {
                     </div>
                 </div>
 
-                {/* ================= TAB ================= */}
+
                 <div className="mb-4 flex items-center justify-between">
 
                     <div className="flex rounded-lg border border-[#242830] bg-[#12151b] p-1">
@@ -230,10 +230,7 @@ const BodyolldetelsAncount = () => {
                     </div>
                 </div>
 
-                {/* ================================================= */}
-                {/*                  TODAY'S PLAN                     */}
-                {/* ================================================= */}
-
+                {/*         TODAY'S PLAN               */}
                 {activeTab === "today" && (
                     <>
                         {Gimworout.length === 0 ? (
