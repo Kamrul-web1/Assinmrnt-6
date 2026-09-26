@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { CalendarPlus, Bookmark } from "lucide-react";
 import MyplanButton from '@/components/Bodybutton/MyplanButton';
+import { error } from 'console';
 interface IBookDetailspageProps {
     params: promise<{
         slug: string
@@ -10,11 +11,19 @@ interface IBookDetailspageProps {
 }
 
 const getBoycore = async () => {
-    const respons = await fetch('http://localhost:3000/data.json');
-    const data = await respons.json();
-    return data
-}
 
+    try {
+        const respons = await fetch('https://api.api-store.workers.dev/api/fitlog');
+        const data = await respons.json();
+        return data;
+
+    } catch (error) {
+        console.error('Eroro Feching books  data:', error)
+
+        return []
+
+    };
+}
 const BodyditelsPage = async ({ params }: IBookDetailspageProps) => {
     const { slug } = await params;
     console.log(slug, 'slug');

@@ -1,16 +1,26 @@
 import BodyCard from '@/components/components/shared/BodyCard';
 import BannerPage from '@/components/components/shared/homepage/Banner';
 import { IType } from '@/type/type';
+import { error } from 'console';
 
 import Link from 'next/link';
-import React from 'react';
-
 
 const getBoycore = async () => {
-    const respons = await fetch('https://api.api-store.workers.dev/api/fitlog');
-    const data = await respons.json();
-    return data;
+
+    try {
+        const respons = await fetch('https://api.api-store.workers.dev/api/fitlog');
+        const data = await respons.json();
+        return data;
+    };
+}catch (error) {
+    console.error('Eroro Feching books  data:', error)
+
+    return {}
+
 };
+
+
+
 
 const WorkouPage = async () => {
     const Bodydata = await getBoycore();
