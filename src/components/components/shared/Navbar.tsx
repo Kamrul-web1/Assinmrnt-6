@@ -1,8 +1,21 @@
+"use client";
+
 import Image from 'next/image';
 import React from 'react';
 import logo from '@/assets/logo.png'
 import Link from 'next/link';
+
+import { BodykContext } from "@/Context/BooksContext";
+import { useContext } from "react";
 const Navbar = () => {
+    const context = useContext(BodykContext);
+
+    if (!context) return null;
+
+    const { Gimworout, Worklist } = context;
+
+    console.log("PLAN:", Gimworout);
+    console.log("SAVED:", Worklist);
     return (
         <div className="navbar bg-[#0C0D10] shadow-sm ">
             <div className="navbar-start">
@@ -32,11 +45,15 @@ const Navbar = () => {
                     <li><Link href="/bodyoldetellish" className=' w-5 m-4 p-2 rounded-3xl  text-[#9CA3AF]'>My Plan</Link></li>
                 </ul>
             </div>
-            <div className="navbar-end flex gap-1.5">
-                <a className="text-[#D1D5DB] pr-1.5">Plan</a>
-                <a className="text-[#D1D5DB] pr-1.5">Saved
-                    0</a>
-            </div>
+            Plan
+            <span
+                className={`ml-1 inline-flex min-w-[20px] h-[20px] items-center justify-center rounded-full px-1 text-[10px] font-bold ${Gimworout.length > 0
+                        ? "bg-[#C2F800] text-black"
+                        : "bg-[#0F1115] text-[#9CA3AF]"
+                    }`}
+            >
+                {Gimworout.length}
+            </span>
         </div>
     );
 };

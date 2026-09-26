@@ -7,7 +7,7 @@ import React from 'react';
 
 
 const getBoycore = async () => {
-    const respons = await fetch('https://api.abcz.workers.dev/api/fitlog');
+    const respons = await fetch('https://api.api-store.workers.dev/api/fitlog');
     const data = await respons.json();
     return data;
 };
