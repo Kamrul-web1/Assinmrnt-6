@@ -42,3 +42,7 @@ FITLOG is designed to provide a smooth experience across desktop, tablet, and mo
 ## 🎯 Project Goal
 
 The main goal of FITLOG is to make workout planning simple, organized, and easy to manage through a clean and modern interface.
+
+
+MY assinment is not a simple  very hard aftar a 3 days  hadwork  😥
+
