@@ -2,6 +2,7 @@ import { IType } from '@/type/type';
 import Image from 'next/image';
 import React from 'react';
 import { CalendarPlus, Bookmark } from "lucide-react";
+import MyplanButton from '@/components/Bodybutton/MyplanButton';
 interface IBookDetailspageProps {
     params: promise<{
         slug: string
@@ -173,16 +174,13 @@ const BodyditelsPage = async ({ params }: IBookDetailspageProps) => {
 
                         <div className="mt-7 flex gap-3">
                             {/* Add to today's plan */}
-                            <button className="flex items-center gap-2 rounded-lg bg-[#b7ff00] px-5 py-3 text-sm font-bold text-black transition hover:bg-[#a5e600]">
-                                <CalendarPlus size={15} strokeWidth={2.5} />
-                                <span>Add to today&apos;s plan</span>
-                            </button>
 
+                            <MyplanButton Body={Body} />
                             {/* Save for later */}
-                            <button className="flex items-center gap-2 rounded-lg border border-gray-700 px-5 py-3 text-sm font-medium text-gray-300 transition hover:bg-gray-800">
+                            {/* <button className="flex items-center gap-2 rounded-lg border border-gray-700 px-5 py-3 text-sm font-medium text-gray-300 transition hover:bg-gray-800">
                                 <Bookmark size={15} strokeWidth={2} />
                                 <span>Save for later</span>
-                            </button>
+                            </button> */}
                         </div>
 
                     </div>
