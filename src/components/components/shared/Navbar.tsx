@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import logo from '@/assets/logo.png'
+import Link from 'next/link';
 const Navbar = () => {
     return (
         <div className="navbar bg-[#0C0D10] shadow-sm ">
@@ -23,12 +24,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-center flex gap-4">
                 <ul className="flex gap-4  ">
-                    <li><a className=' w-5 mx-3 py-2 px-4 rounded-3xl bg-[#2D313B] text-[#C2F800]'>Workouts</a></li>
+                    <li><Link href="/Body" className=' w-5 mx-3 py-2 px-4 rounded-3xl bg-[#2D313B] text-[#C2F800]'>Workouts</Link></li>
                     <li>
 
 
                     </li>
-                    <li><a className=' w-5 m-4 p-2 rounded-3xl  text-[#9CA3AF]'>My Plan</a></li>
+                    <li><Link href="/bodyoldetellish" className=' w-5 m-4 p-2 rounded-3xl  text-[#9CA3AF]'>My Plan</Link></li>
                 </ul>
             </div>
             <div className="navbar-end flex gap-1.5">

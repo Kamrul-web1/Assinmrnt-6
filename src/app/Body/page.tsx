@@ -1,78 +1,56 @@
+import BodyCard from '@/components/components/shared/BodyCard';
+import BannerPage from '@/components/components/shared/homepage/Banner';
 import { IType } from '@/type/type';
-import Image from 'next/image';
+
+import Link from 'next/link';
 import React from 'react';
 
-interface ICardjim {
-    workout: IType;
-}
 
-const BodyCard = ({ workout }: ICardjim) => {
+const getBoycore = async () => {
+    const respons = await fetch('https://api.abcz.workers.dev/api/fitlog');
+    const data = await respons.json();
+    return data;
+};
+
+const WorkouPage = async () => {
+    const Bodydata = await getBoycore();
     return (
-        <div className="w-full max-w-[520px] overflow-hidden rounded-[22px] border border-gray-800 bg-[#15171c] shadow-lg">
+        <section className="container mx-auto pt-7">
+            <div className="w-full max-w-7xl overflow-hidden    bg-[#000000] shadow-lg">
 
-            {/* Image */}
-            <div className="h-[255px] w-full overflow-hidden">
-                <Image
-                    src={workout.image}
-                    alt={workout.name}
-                    height={480}
-                    width={530}
-                    className="object-cover"
-                />
-            </div>
-
-            {/* Card Content */}
-            <div className="p-6">
-
-                {/* Muscle Groups */}
-                {workout.muscleGroups?.length > 0 && (
-                    <div className="mb-4 flex flex-wrap gap-2">
-                        {workout.muscleGroups.map((muscle: string) => (
-                            <span
-                                key={muscle}
-                                className="rounded-full bg-[#C2F800] px-3 py-1 text-sm text-[#000000] font-bold"
-                            >
-                                {muscle}
-                            </span>
-                        ))}
-                    </div>
-                )}
-
-                {/* Title */}
-                <h2 className="text-2xl font-extrabold uppercase tracking-wide text-white">
-                    {workout.name}
-                </h2>
-
-                {/* Type */}
-                <p className="mt-2 text-base text-gray-400">
-                    {workout.equipment}
-                </p>
-
-                {/* Divider */}
-                <div className="my-6 h-px bg-gray-800"></div>
-
-                {/* Stats */}
-                <div className="flex items-center gap-7 text-gray-400">
-
-                    <div className="flex items-center gap-2">
-                        <span className="text-xl">◷</span>
-                        <span>{workout.duration} min</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        <span className="text-xl">🔥</span>
-                        <span>{workout.caloriesBurned}</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        <span className="text-xl">☆</span>
-                        <span>{workout.rating}</span>
-                    </div>
-
+                {/* Banner */}
+                <div className="  container mx-auto">
+                    <BannerPage />
                 </div>
+
+                {/* Library */}
+                <div className="relative z-10 px-6 pt-8 pb-4 bg-[#000000]">
+                    <h2 className="font-bold text-3xl">
+                        THE LIBRARY
+                    </h2>
+
+                    <p className="text-[#9CA3AF]">
+                        Twelve lifts covering every major muscle group.
+                    </p>
+                </div>
+
+                {/* Cards */}
+                <div className="relative z-10 grid grid-cols-3 gap-4 px-6 pb-9 bg-[#000000]">
+                    {Bodydata.map((workout: IType) => {
+                        return (
+                            <Link
+                                key={workout.id}
+                                href={`/Body/${workout.id}`}
+                            >
+                                <BodyCard workout={workout} />
+                            </Link>
+                        );
+                    })}
+                </div>
+
             </div>
-        </div>
+        </section>
     );
 };
 
-export default BodyCard;
+export default WorkouPage;
