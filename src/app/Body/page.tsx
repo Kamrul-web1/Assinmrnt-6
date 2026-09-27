@@ -8,7 +8,7 @@ import Link from 'next/link';
 const getBoycore = async () => {
 
     try {
-        const respons = await fetch(`{process.env.NEXT_PUBLIC_API_URL!}/https://api.api-store.workers.dev/api/fitlog`);
+        const respons = await fetch(`https://api.api-store.workers.dev/api/fitlog`);
         const data = await respons.json();
         return data;
 

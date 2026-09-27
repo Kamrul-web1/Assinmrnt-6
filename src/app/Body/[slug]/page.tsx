@@ -5,14 +5,14 @@ import { CalendarPlus, Bookmark } from "lucide-react";
 import MyplanButton from '@/components/Bodybutton/MyplanButton';
 import { error } from 'console';
 interface IBookDetailspageProps {
-    params: promise<{
+    params: Promise<{
         slug: string
     }>;
 }
 const getBoycore = async () => {
 
     try {
-        const respons = await fetch(`{process.env.NEXT_PUBLIC_API_URL!}/https://api.api-store.workers.dev/api/fitlog`);
+        const respons = await fetch(`https://api.api-store.workers.dev/api/fitlog`);
         const data = await respons.json();
         return data;
 
@@ -27,7 +27,7 @@ const BodyditelsPage = async ({ params }: IBookDetailspageProps) => {
     const { slug } = await params;
     console.log(slug, 'slug');
     const Bodydata = await getBoycore();
-    const Body = Bodydata.find((Body: IType) => (Body.id) === Number(slug)) as IType
+    const Body: IType = Bodydata.find((Body: IType) => (Body.id) === Number(slug)) as IType
     console.log(Body);
 
 
@@ -161,7 +161,7 @@ const BodyditelsPage = async ({ params }: IBookDetailspageProps) => {
                         </h2>
 
                         <ol className="space-y-3">
-                            {Body.instructions.map((item, index) => (
+                            {Body?.instructions?.map((item, index) => (
                                 <li
                                     key={index}
                                     className="flex gap-3 text-sm leading-6 text-gray-400"

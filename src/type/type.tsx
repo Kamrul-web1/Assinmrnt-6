@@ -11,7 +11,8 @@ export interface IType {
     sets: number,
     reps: string,
     rating: number,
-    description: string[]
+    description: string,
+    instructions: string[]
 
 
 }
