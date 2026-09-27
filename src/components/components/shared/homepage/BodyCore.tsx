@@ -6,10 +6,19 @@ import BodyCard from '../BodyCard';
 
 
 const getBoycore = async () => {
-    const respons = await fetch('https://api.api-store.workers.dev/api/fitlog');
-    const data = await respons.json();
-    return data;
-};
+
+    try {
+        const respons = await fetch('process.env.NEXT_PUBLIC_API_URL!');
+        const data = await respons.json();
+        return data;
+
+    } catch (error) {
+        console.error('Eroro Feching books  data:', error)
+
+        return []
+
+    };
+}
 
 const BodyCore = async () => {
     const Bodydata = await getBoycore();
